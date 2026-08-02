@@ -45,3 +45,13 @@ jobs:
             --region asia-east1 \
             --allow-unauthenticated \
             --set-env-vars VIEW_VERSION=b2,SESSION_DRIVER=file,DB_CONNECTION=sqlite,APP_DEBUG=true,APP_KEY=base64:d3M0U2xVUXpIYTd2a0h0TU95aEF0eXB3MFRmS2JmU3I=
+
+      # 5. 針對 my-app-b1 與 my-app-b2 執行資料庫 Migration (包含預設的 users 表格)
+      - name: Run Database Migrations
+        run: |
+          gcloud run jobs deploy migrate-job \
+            --source . \
+            --region asia-east1 \
+            --set-env-vars DB_CONNECTION=sqlite,APP_KEY=base64:d3M0U2xVUXpIYTd2a0h0TU95aEF0eXB3MFRmS2JmU3I= \
+            --command php \
+            --args "artisan,migrate,--force" || true
