@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>b 頁面 - 使用者列表 ({{ $version }})</title>
+
+    <!-- 如果你有需要引入 Vite 編譯的資源，可以加這行： -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
     <style>
         body { font-family: sans-serif; padding: 2rem; background: #f9fafb; }
         h1 { text-align: center; color: #111827; }
@@ -22,6 +26,12 @@
 <body>
 
     <h1>使用者列表</h1>
+
+    <!-- 👇 加這行！用來驗證 Deployment 是不是最新的 v2 版本 👇 -->
+    <div style="text-align: center; color: #e11d48; font-weight: bold; font-size: 1.2rem; margin-bottom: 1rem;">
+        🚀 v2 最新版本部署成功！
+    </div>
+
     <div class="version_badge">目前版本：<strong>{{ $version }}</strong></div>
 
     @if($version === 'b1')
