@@ -21,12 +21,12 @@
         <!-- 判斷環境變數，自動呈現 B1 或 B2 的標籤文字 -->
         <div style="display: flex; justify-content: space-between; padding: 10px; font-weight: bold; font-size: 18px;">
             <div>
-                @if(env('VIEW_VERSION') === 'b1')
+                @if(config('app.view_version') === 'b1')
                     <span style="color: red;">這是 B1_2 頁</span>
                 @endif
             </div>
             <div>
-                @if(env('VIEW_VERSION') === 'b2')
+                @if(config('app.view_version') === 'b2')
                     <span style="color: blue;">這是 B2_2 頁</span>
                 @endif
             </div>

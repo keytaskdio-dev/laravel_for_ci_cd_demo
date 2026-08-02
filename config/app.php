@@ -123,4 +123,6 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    'view_version' => env('VIEW_VERSION', 'b1'),
+
 ];
