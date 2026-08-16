@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="card">
-        <h1>歡迎系統</h1>
+        <h1>歡迎 Test 系統</h1>
         <p>點擊下方按鈕進入列表頁</p>
         <a href="/page_b" class="btn">登入進 b 頁面</a>
     </div>
