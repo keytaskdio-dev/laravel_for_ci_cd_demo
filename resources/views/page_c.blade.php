@@ -2,6 +2,7 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>c 頁面 - 編輯資料</title>
     <style>
         body { font-family: sans-serif; padding: 2rem; background: #f4f4f9; display: flex; flex-direction: column; align-items: center; }
@@ -9,34 +10,35 @@
         .form-group { margin-bottom: 1rem; text-align: left; }
         .form-group label { display: block; margin-bottom: 0.5rem; font-weight: bold; }
         .form-group input, .form-group select { width: 100%; padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
-        .btn { background: #10b981; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; width: 100%; }
+        .btn { background: #10b981; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; width: 100%; font-size: 1rem; }
+        .btn:hover { background: #059669; }
         .btn-link { background: #6b7280; color: white; padding: 0.5rem 1rem; text-decoration: none; border-radius: 4px; display: inline-block; margin-top: 1rem; }
         table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: center; }
         th { background-color: #f2f2f2; }
     </style>
 </head>
 <body>
 
-    <!-- 新增表單區塊 -->
+    <!-- 新增使用者表單區塊 -->
     <div class="card">
         <h2>新增使用者資料</h2>
         <form action="/page_c" method="POST">
             @csrf
             <div class="form-group">
                 <label for="name">姓名 (Name):</label>
-                <input type="text" id="name" name="name" required placeholder="請輸入姓名">
+                <input type="text" id="name" name="name" required placeholder="例如: tom">
             </div>
             <div class="form-group">
                 <label for="age">年齡 (Age):</label>
-                <input type="number" id="age" name="age" required placeholder="請輸入年齡">
+                <input type="number" id="age" name="age" required placeholder="例如: 25">
             </div>
             <div class="form-group">
                 <label for="gender">性別 (Gender):</label>
                 <select id="gender" name="gender" required>
-                    <option value="男">男</option>
-                    <option value="女">女</option>
-                    <option value="其他">其他</option>
+                    <option value="male">male (男)</option>
+                    <option value="female">female (女)</option>
+                    <option value="other">other (其他)</option>
                 </select>
             </div>
             <button type="submit" class="btn">送出並新增</button>
