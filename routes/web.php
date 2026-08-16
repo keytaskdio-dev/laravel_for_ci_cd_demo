@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
 // a 頁面：登入按鈕
@@ -18,21 +17,19 @@ Route::get('/page_b', function () {
     return view('page_b', compact('users', 'version'));
 });
 
-// c 頁面：顯示編輯與列表頁面
+// c 頁面：顯示編輯表單與最新列表
 Route::get('/page_c', function () {
-    $users = User::orderBy('id', 'desc')->get(); // 最新新增的排前面
+    $users = User::orderBy('id', 'desc')->get();
     return view('page_c', compact('users'));
 });
 
-// c 頁面：處理資料新增
+// c 頁面：寫入資料庫 (name, age, gender)
 Route::post('/page_c', function (Request $request) {
-    // 寫入資料庫
     User::create([
-        'name' => $request->input('name'),
-        'email' => $request->input('email'),
-        'password' => Hash::make($request->input('password')),
+        'name'   => $request->input('name'),
+        'age'    => $request->input('age'),
+        'gender' => $request->input('gender'),
     ]);
 
-    // 儲存後重導向回 /page_c，實現刷新效果
     return redirect('/page_c');
 });
